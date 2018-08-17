@@ -78,7 +78,15 @@ class BurgerBuilder extends Component {
   }
   
   purchaseContinueHandler = () => {
-    alert('continue....')
+    const queryParams = []
+    for ( let i in this.state.ingredients ) {
+      queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]))
+    }
+    queryParams.push('price=' + this.state.totalPrice)
+    this.props.history.push({
+      pathname: '/checkout',
+      search: queryParams.join('&')
+    })
   }
 
   render() {
@@ -95,8 +103,8 @@ class BurgerBuilder extends Component {
           <OrderSummary 
           ingredients={this.state.ingredients}
           price={this.state.totalPrice}
-          purchaseCanceled={this.purchaseCanceled}
-          purchaseContinued={this.purchaseContinued
+          purchaseCanceled={this.purchaseCancelHandler}
+          purchaseContinued={this.purchaseContinueHandler
           } />
         </Modal>
         <Burger ingredients={this.state.ingredients}  />
