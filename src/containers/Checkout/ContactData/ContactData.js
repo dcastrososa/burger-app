@@ -50,7 +50,7 @@ class ContactData extends Component {
           value: '',
         },
         deliveryMethod: {
-          elementType: 'xdd',
+          elementType: 'select',
           elementConfig: {
             options: [
               {value: 'fastest', displayValue: 'Fastest'},
