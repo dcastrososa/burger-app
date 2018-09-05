@@ -11,3 +11,7 @@ export {
   fetchOrdersStart,
   fetchOrdersFail,
   fetchOrders } from './order';
+export {
+  auth,
+  logout
+} from './auth';
